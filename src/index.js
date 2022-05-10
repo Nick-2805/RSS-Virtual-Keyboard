@@ -28,6 +28,58 @@ window.addEventListener('load', () => {
 						textar = document.querySelector('.textarea')
 	
 						console.log(textar.textContent)
+
+// function getCursorPosition() {
+//   let CaretPos = 0;
+
+//   if (document.selection) {
+// 	  console.dir('document')
+
+//     textar.focus();
+
+//     let Sel = document.selection.createRange();
+
+//     Sel.moveStart('character', -textar.value.length);
+
+//     CaretPos = Sel.text.length;
+//   } else if (textar.selectionStart || textar.selectionStart == '0') {
+//     CaretPos = textar.selectionStart;
+//   }
+//   return CaretPos;
+// }
+// let cursorPos = 0;
+// textar.addEventListener('click', () => {
+// 	cursorPos = getCursorPosition();
+// 	console.log(cursorPos)
+// });
+// function insertInCurPos(substr) {
+//   var array = textar.textContent.split('');
+//   array.splice(cursorPos, 0, substr);
+//   textar.textContent = array.join('');
+//   console.group(textar.textContent)
+// }
+// const btnArLeft = document.querySelector('.ArrowLeft');
+// const btnArRight = document.querySelector('.ArrowRight');
+
+// function toLeft() {
+//   if (cursorPos > 0) {
+//     cursorPos--;
+//   }
+//   textar.focus();
+//   textar.setSelectionRange(cursorPos, cursorPos);
+// }
+
+// function toRight() {
+//   if (cursorPos < textar.textContent.length) {
+//     cursorPos++;
+//   }
+//   textar.focus();
+//   textar.setSelectionRange(cursorPos, cursorPos);
+// }
+
+// btnArLeft.addEventListener('click', toLeft);
+// btnArRight.addEventListener('click', toRight);
+
 /***************************************************************************** */
 	const listener_keyboards = function(event){
 		
@@ -349,9 +401,27 @@ function createBlock() {
 	const textAr =document.createElement('textarea')
 	textAr.classList.add('textarea')
 	textAr.setAttribute('id', 'area')
+
 	//textAr.value = ''
 	block.appendChild(textAr)
 	
+	
+
+	
+const infoWrap =  document.createElement('div')
+	infoWrap.classList.add('wrapper__info')
+	block.appendChild(infoWrap)
+	
+	const textLang =  document.createElement('div')
+	textLang.classList.add('text__lang')
+	textLang.innerHTML = 'Change Language: Ctrl + Alt'
+	infoWrap.appendChild(textLang)
+
+	const textMade =  document.createElement('div')
+	textMade.classList.add('text__made')
+	textMade.innerHTML = 'Made for: Windows'
+	infoWrap.appendChild(textMade)
+
 	const board = document.createElement('div')
 	board.classList.add('keyboard')
 	return block.appendChild(board)
@@ -406,3 +476,16 @@ function createRowBtns(arr = engArrDown) {
 	}
 	return board
 }//норм
+
+
+// const infoWrap =  document.createElement('div')
+// 	infoWrap.classList.add('wrapper__info')
+// 	block.appendChild('infoWrap')
+	
+// 	const textLang =  document.createElement('div')
+// 	textLang.classList.add('text__lang')
+// 	infoWrap.appendChild('textLang')
+
+// 	const textMade =  document.createElement('div')
+// 	textMade.classList.add('text__made')
+// 	infoWrap.appendChild('textMade')
