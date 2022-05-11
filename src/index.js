@@ -29,56 +29,7 @@ window.addEventListener('load', () => {
 	
 						console.log(textar.textContent)
 
-// function getCursorPosition() {
-//   let CaretPos = 0;
 
-//   if (document.selection) {
-// 	  console.dir('document')
-
-//     textar.focus();
-
-//     let Sel = document.selection.createRange();
-
-//     Sel.moveStart('character', -textar.value.length);
-
-//     CaretPos = Sel.text.length;
-//   } else if (textar.selectionStart || textar.selectionStart == '0') {
-//     CaretPos = textar.selectionStart;
-//   }
-//   return CaretPos;
-// }
-// let cursorPos = 0;
-// textar.addEventListener('click', () => {
-// 	cursorPos = getCursorPosition();
-// 	console.log(cursorPos)
-// });
-// function insertInCurPos(substr) {
-//   var array = textar.textContent.split('');
-//   array.splice(cursorPos, 0, substr);
-//   textar.textContent = array.join('');
-//   console.group(textar.textContent)
-// }
-// const btnArLeft = document.querySelector('.ArrowLeft');
-// const btnArRight = document.querySelector('.ArrowRight');
-
-// function toLeft() {
-//   if (cursorPos > 0) {
-//     cursorPos--;
-//   }
-//   textar.focus();
-//   textar.setSelectionRange(cursorPos, cursorPos);
-// }
-
-// function toRight() {
-//   if (cursorPos < textar.textContent.length) {
-//     cursorPos++;
-//   }
-//   textar.focus();
-//   textar.setSelectionRange(cursorPos, cursorPos);
-// }
-
-// btnArLeft.addEventListener('click', toLeft);
-// btnArRight.addEventListener('click', toRight);
 
 /***************************************************************************** */
 	const listener_keyboards = function(event){
@@ -121,16 +72,17 @@ window.addEventListener('load', () => {
 		/************************************************ */
 				if(el.firstChild.innerHTML == 'Enter') {
 				textar.textContent +=' \n';
-				} else if (el.firstChild.innerHTML == 'Tab') {
+				} else if(el.firstChild.innerHTML == 'Del'){
+					textar.textContent = ''
+				}else if (el.firstChild.innerHTML == 'Tab') {
 				textar.textContent += '    ';
-				} else if (el.firstChild.innerHTML == 'Alt' || el.firstChild.innerHTML == 'Del' ||  el.firstChild.innerHTML == 'Ctrl' || el.firstChild.innerHTML == 'Win' || el.firstChild.innerHTML == 'Shift' || el.firstChild.innerHTML == 'CapsLock') {
+				} else if (el.firstChild.innerHTML == 'Alt' ||  el.firstChild.innerHTML == 'Ctrl' || el.firstChild.innerHTML == 'Win' || el.firstChild.innerHTML == 'Shift' || el.firstChild.innerHTML == 'CapsLock') {
 				let text = textar.textContent;
 				textar.textContent = text;
 				} else if (el.firstChild.innerHTML == 'Backspace') {
 				textar.textContent = backspace(textar.textContent);
 				} else {
 				textar.textContent += el.firstChild.innerHTML;
-
 				}
 		/************************************************ */
 
@@ -174,11 +126,7 @@ window.addEventListener('load', () => {
 						changeLang() 
 						deleteID()
 				}
-				// btns.forEach(btn => {
-				// 	console.log('dddd')
-				// 		btn.removeAttribute('id', 'active')
-				// })
-				
+
 				el.removeEventListener('mouseup', listener_for_span, false);
 								
 			};
@@ -241,12 +189,13 @@ window.addEventListener('load', () => {
 				}else {
 					btn.setAttribute('id', 'active')
 				}
-				// 			/************************************************ */
 				if(btn.firstChild.innerHTML == 'Enter') {
 				textar.textContent +=' \n';
+				}else if(btn.firstChild.innerHTML == 'Del'){
+					textar.textContent = '';
 				} else if (btn.firstChild.innerHTML == 'Tab') {
 				textar.textContent += '    ';
-				} else if (btn.firstChild.innerHTML == 'Alt' || btn.firstChild.innerHTML == 'Del' ||  btn.firstChild.innerHTML == 'Ctrl' || btn.firstChild.innerHTML == 'Win' || btn.firstChild.innerHTML == 'Shift' || btn.firstChild.innerHTML == 'CapsLock') {
+				} else if (btn.firstChild.innerHTML == 'Alt' ||  btn.firstChild.innerHTML == 'Ctrl' || btn.firstChild.innerHTML == 'Win' || btn.firstChild.innerHTML == 'Shift' || btn.firstChild.innerHTML == 'CapsLock') {
 				let text = textar.textContent;
 				textar.textContent = text;
 				} else if (btn.firstChild.innerHTML == 'Backspace') {
@@ -255,7 +204,7 @@ window.addEventListener('load', () => {
 				textar.textContent += btn.firstChild.innerHTML;
 
 				}
-		/************************************************ */
+
 				
 				document.onkeyup = function(){
 					
@@ -281,46 +230,16 @@ window.addEventListener('load', () => {
 		})
 		
 		/******************************* */
-		//document.removeEventListener('keydown', event_for_keyboard, false)
 	}
 	document.addEventListener('keydown', event_for_keyboard, false)
 
-/*************************** */
-function backspace(text) {
-	console.log(text)
-	let arr = text.toString().split('');
-	arr.pop();
-	return arr.join('');
-}
-
-
-/***************************** */	
+	function backspace(text) {
+		console.log(text)
+		let arr = text.toString().split('');
+		arr.pop();
+		return arr.join('');
+	}
 })
-
-/****************************************************** */
-
-/*Combo btn */
-document.addEventListener('keydown', function(event) {
-	
-// event.preventDefault();
-	//Ctrl + Alt
-	// if(event.shiftKey && event.altKey) { //  && flagLang == false
-	// 	event.preventDefault();
-	// 	changeLang()
-	// }else 
-
-	// if(event.ctrlKey && event.altKey) { // && flagLang == true
-	// 	changeLang()
-	// }  
-	//CapsLock
-	// if(event.code == 'CapsLock') {
-	// 	changeHight()
-	// }
-	// else if(event.code == 'CapsLock') {
-	// 	event.preventDefault();
-	// 	changeHight()
-	// }  
-}) // удалить
 
 // if 'CapsLock', change hight
 function changeHight() {
@@ -344,12 +263,6 @@ function changeHight() {
 		} 
 		chengeSymbol(arr)
 	}
-	
-	//return arr
-										// Object.keys(letterObj).forEach(function(key) {
-										// 	console.log(key, ':', this[key].length);
-										// }, letterObj);
-										//let newArr = [].concat.apply([], letterObj.engArrDown);
 } // норм
 
 //if shift + alt, change lang
@@ -405,10 +318,8 @@ function createBlock() {
 	//textAr.value = ''
 	block.appendChild(textAr)
 	
-	
+  const infoWrap =  document.createElement('div')
 
-	
-const infoWrap =  document.createElement('div')
 	infoWrap.classList.add('wrapper__info')
 	block.appendChild(infoWrap)
 	
