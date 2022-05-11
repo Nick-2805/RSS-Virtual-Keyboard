@@ -29,8 +29,6 @@ window.addEventListener('load', () => {
 	
 						console.log(textar.textContent)
 
-
-
 /***************************************************************************** */
 	const listener_keyboards = function(event){
 		
@@ -315,11 +313,9 @@ function createBlock() {
 	textAr.classList.add('textarea')
 	textAr.setAttribute('id', 'area')
 
-	//textAr.value = ''
 	block.appendChild(textAr)
 	
-  const infoWrap =  document.createElement('div')
-
+	const infoWrap =  document.createElement('div')
 	infoWrap.classList.add('wrapper__info')
 	block.appendChild(infoWrap)
 	
@@ -387,16 +383,3 @@ function createRowBtns(arr = engArrDown) {
 	}
 	return board
 }//норм
-
-
-// const infoWrap =  document.createElement('div')
-// 	infoWrap.classList.add('wrapper__info')
-// 	block.appendChild('infoWrap')
-	
-// 	const textLang =  document.createElement('div')
-// 	textLang.classList.add('text__lang')
-// 	infoWrap.appendChild('textLang')
-
-// 	const textMade =  document.createElement('div')
-// 	textMade.classList.add('text__made')
-// 	infoWrap.appendChild('textMade')
