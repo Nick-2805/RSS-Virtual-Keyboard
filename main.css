@@ -1,6 +1,6 @@
-/* body {
-	background:grey;
-} */
+body {
+		background: beige;
+}
 .container {
 	/* position: relative; */
 	margin: 0 auto;
@@ -20,13 +20,20 @@
 	font-size: 18px;
 	color: #444444;
 }
+.wrapper__info{
+	max-width: 700px;
+	margin: 1.3em auto 1em;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1.2em;
+	font-family: cursive;
+}
 .keyboard {
 	width: 704px;
 	margin: 0 auto;
-	padding: 0px;
-	padding-left: 0;
-	padding-bottom: 0;
-	background: #888888;
+	padding-top: 0.3em;
+	background: cornflowerblue;
 	border: 3px solid #222222;
 	border-radius: 5px;
 }
